@@ -1,0 +1,59 @@
+# 보안/실무 전환용 필터 (실제 배포 시 아래 주석을 해제)
+# .env
+# /src/main/resources/application-local.yml
+# /src/main/resources/secret.properties
+# *.pem
+# *.log
+
+
+# =========================================================================
+# PostgreSQL 로컬 데이터 폴더 제외
+postgres_data/
+# =========================================================================
+
+
+# =========================================================================
+# 기본 스프링 부트 및 Gradle 빌드 설정 (F5 누르면 다시 생기는 파일들)
+# =========================================================================
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+
+# =========================================================================
+# 개발 도구(IDE)별 빌드 및 캐시 파일 규칙
+# =========================================================================
+
+### STS (Eclipse) ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
