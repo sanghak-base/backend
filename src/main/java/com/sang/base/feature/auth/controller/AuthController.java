@@ -13,7 +13,9 @@ import com.sang.base.feature.auth.service.AuthService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -26,6 +28,8 @@ public class AuthController {
 			@Valid @RequestBody SignupRequest request
 	) {
 		
+		log.info("회원가입 요청 email={}", request.email());
+		
 		authService.signup(request);
 		
 		return ApiResponse.emptySuccess();
@@ -36,6 +40,8 @@ public class AuthController {
             @Valid @RequestBody LoginRequest request
     ) {
 
+		log.info("로그인 요청 email={}", request.email());
+		
         return ApiResponse.success(authService.login(request));
     }
 }
